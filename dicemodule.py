@@ -9,9 +9,12 @@ and will be displayed in descending (column) fashion.
 
 class DiceModule:
 
-    def __init__(self, dice_num):
+    def __init__(self, dice_num, display_data):
         self.dice = dice_num
+        self.show_data = display_data
         self.dice_sides = [1, 2, 3, 4, 5, 6]
+        self.dice_roll_int = []
+        self.sum_result = 0
 
 
     def roll_dice(self):
@@ -21,11 +24,29 @@ class DiceModule:
             elif int(self.dice) <= 0:
                 print("\nInteger value must be greater than 0 (cannot be 0 or any negative number)...\n"); exit(1)
             else:
+                # Print a banner
+                if self.dice > 1:
+                    print("\n" + ("=" * 5) + " Rolling ",int(self.dice),"dice " + ("=" * 6))
+                    pass
+                else:
+                    print("\n" + ("=" * 5) + " Rolling die " + ("=" * 6))
+                    pass
                 # Establish a loop for dice number
                 for i in range(1, (self.dice + 1)):
                     result = random.choice(self.dice_sides)
+                    # Append the resulting rolls to the dice roll list
+                    self.dice_roll_int.append(int(result))
+                    # Add the sum
+                    self.sum_result = sum(self.dice_roll_int)
                     # Print the result
                     print("Dice Roll [", i, "] -- Yields: ", result)
+                # Print the sum
+                if self.show_data:
+                    print("\n------ Roll Data -------")
+                    _Core.print_sum(self.sum_result)
+                    _Core.frequent(self.dice_roll_int)
+
+                #
         except ValueError as e:
             print("\nValue must be an integer! -- " + str(e) + "\n"); exit(1)
 
@@ -73,3 +94,26 @@ class DiceModuleWizard:
                     print("\n\nCtrl + C caught!\n"); exit(0)
             except ValueError as e:
                 print("\nValue must be an integer! -- " + str(e) + "\n")
+
+class _Core:
+
+    def __init__(self):
+        pass
+
+    @staticmethod
+    def print_sum(__sum):
+        print("Total Sum: ",int(__sum)); pass
+
+    @staticmethod
+    def frequent(__list):
+        counter = 0
+        int_list = __list[0]
+
+        for i in __list:
+            c_freq = __list.count(i)
+            if c_freq > counter:
+                # Reverse
+                counter = c_freq
+                int_list = i
+        # Print most frequent
+        print("Max Value: ",int_list,"\n")
