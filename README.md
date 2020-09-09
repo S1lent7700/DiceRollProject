@@ -10,3 +10,8 @@ python3 dice.py -n 5
 ```
 python3 dice.py -n 5 --data
 ```
+
+**Running with input wizard**
+```
+python3 dice.py -w
+```
