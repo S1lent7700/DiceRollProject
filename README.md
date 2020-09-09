@@ -13,5 +13,5 @@ python3 dice.py -n 5 --data
 
 **Running with input prompt**
 ```
-python3 dice.py -w
+python3 dice.py -p
 ```
