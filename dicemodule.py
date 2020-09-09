@@ -44,8 +44,9 @@ class DiceModule:
                 if self.show_data:
                     print("\n------ Roll Data -------")
                     _Core.print_sum(self.sum_result)
-                    _Core.frequent(self.dice_roll_int)
+                    _Core.find_max(self.dice_roll_int)
 
+                    print("\n")
                 #
         except ValueError as e:
             print("\nValue must be an integer! -- " + str(e) + "\n"); exit(1)
@@ -66,6 +67,8 @@ class DiceModuleWizard:
                 try:
                     # The prompt
                     string = input("How many dice will be used?: ")
+                    # Split the string
+                    _str = str(string).split(',')
                     # Check the input
                     if len(string) == 0:
                         # Print error -- Prompt length
@@ -73,7 +76,7 @@ class DiceModuleWizard:
                         # break
                         pass
                     if int(string) > 5:
-                        print("\nPlease enter a value 1-5 -- Got: ",int(string),"\n")
+                        print("\nPlease enter a value 1-5 -- Got: ", int(string), "\n")
                         pass
                     elif len(string) > 1:
                         print("\nPlease enter a single digit value (1-6)...\n")
@@ -90,6 +93,7 @@ class DiceModuleWizard:
                             result = random.choice(self.dice_sides)
                             # Print the result
                             print("Dice Roll [", i, "] -- Yields: ", result)
+
                 except KeyboardInterrupt:
                     print("\n\nCtrl + C caught!\n"); exit(0)
             except ValueError as e:
@@ -105,15 +109,15 @@ class _Core:
         print("Total Sum: ",int(__sum)); pass
 
     @staticmethod
-    def frequent(__list):
+    def find_max(__list):
         counter = 0
         int_list = __list[0]
 
         for i in __list:
-            c_freq = __list.count(i)
-            if c_freq > counter:
+            c_max = __list.count(i)
+            if c_max > counter:
                 # Reverse
-                counter = c_freq
+                counter = c_max
                 int_list = i
         # Print most frequent
-        print("Max Value: ",int_list,"\n")
+        print("Max Value: ",int_list)
