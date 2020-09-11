@@ -3,12 +3,12 @@ Displays a randomized sequence of numbers based on how many dice are supplied.
 
 **Usage (Normal)**
 ```
-python3 dice.py -n 5
+python3 dice.py -n <NUMBER_OF_DICE_TO_ROLL>
 ```
 
 **Running (with data output)**
 ```
-python3 dice.py -n 5 --data
+python3 dice.py -n <NUMBER_OF_DICE_TO_ROLL> --data
 ```
 
 **Running with input prompt**
