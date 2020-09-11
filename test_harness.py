@@ -1,7 +1,8 @@
 import os
 
 '''
-The custom test harness for the dice program.
+The custom test harness for the dice program. This tests the randomness
+of the outputs.
 Author: Gleb Bair
 CEG 3110
 '''
