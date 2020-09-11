@@ -1,5 +1,5 @@
 # DiceRoll-Mini-Project
-Displays a randomized sequence of numbers based on how many dice are supplied.
+Displays a randomized sequence of numbers (1-6) based on how many dice are supplied (5 max).
 
 **Usage (Normal)**
 ```
