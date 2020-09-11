@@ -44,7 +44,7 @@ class Harness:
             harness._runtime(int(def_runs), int(dice_no))
 
         except ValueError as e:
-            _Core.print_error("Vakue miss-match -> " + str(e)); exit(1)
+            _Core.print_error("Value miss-match -> " + str(e)); exit(1)
 
     def _runtime(self, runs, dice):
         for i in range(0, int(runs)):
