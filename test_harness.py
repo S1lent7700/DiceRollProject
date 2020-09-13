@@ -19,15 +19,15 @@ class Harness:
 
     def run(self):
         # Provide the user with the prompts
-        run_prompt = input("How many times should the program run? (X): ")
+        run_prompt = input("How many trials need to be run? (X): ")
 
         try:
             if int(run_prompt) == 0 or int(run_prompt) <= 0:
                 def_runs = self.default_runs
-                _Core.print_setting("Number of runs", int(def_runs))
+                _Core.print_setting("Number of trials", int(def_runs))
             else:
                 def_runs = int(run_prompt)
-                _Core.print_setting("Number of runs", int(def_runs))
+                _Core.print_setting("Number of trials", int(def_runs))
 
             dice_prompt = input("How many dice do you want to roll? (Y): ")
 
@@ -38,7 +38,8 @@ class Harness:
                 dice_no = int(dice_prompt)
                 _Core.print_setting("Number of dice to roll", int(dice_prompt))
 
-            _Core.print_banner("Running harness...")
+            _Core.print_banner("Running harness...\nNumber of trials (outputs): " + str(run_prompt) + "\n" +
+                               "Number of dice rolled per trial: " + str(dice_prompt))
 
             harness = Harness()
             harness._runtime(int(def_runs), int(dice_no))
