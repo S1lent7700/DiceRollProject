@@ -24,13 +24,6 @@ class DiceModule:
             elif int(self.dice) <= 0:
                 print("\nInteger value must be greater than 0 (cannot be 0 or any negative number)...\n"); exit(1)
             else:
-                # Print a banner
-                if self.dice > 1:
-                    print("\n" + ("=" * 5) + " Rolling ",int(self.dice),"dice " + ("=" * 6))
-                    pass
-                else:
-                    print("\n" + ("=" * 5) + " Rolling die " + ("=" * 6))
-                    pass
                 # Establish a loop for dice number
                 for i in range(1, (self.dice + 1)):
                     result = random.choice(self.dice_sides)
@@ -39,7 +32,9 @@ class DiceModule:
                     # Add the sum
                     self.sum_result = sum(self.dice_roll_int)
                     # Print the result
-                    print("Dice Roll [", i, "] -- Yields: ", result)
+                    # print("Dice Roll [", i, "] -- Yields: ", result)
+                    print("Die #",i,"-- Outputs:",result)
+                print("\n")
                 # Print the sum
                 if self.show_data:
                     print("\n------ Roll Data -------")
